@@ -71,7 +71,8 @@ This method let me check all pairs of x under 300k after that it started to slow
 
 I made this code a long time ago so it has some memory leaking errors 
 This will not be fixed because there is no need for this code. From what I linked above people have said:
-From Lee Morgenstern "if there is a 3x3 magic square of distinct squares, then all entries must be above 10^14." 
+From Lee Morgenstern "if there is a 3x3 magic square of distinct squares, then all entries must be above 10^14."
+link to the quote http://www.multimagie.com/English/SquaresOfSquaresSearch.htm 
 10^14 !! 
 I have only check up to 3*10^5 and my program starts to slow down significantly.
 
