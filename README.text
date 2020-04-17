@@ -64,7 +64,7 @@ e is used four  times
 
 Everything else is just rotations of this, but what we can take away is:
 anything that is used ONLY once must not be apart of the final answer.
-if a set has EACH of its three elements only USED TWICE means it must not be apart of the final answer.
+if a set has EACH of its three elements only USED ONLY TWICE means it must not be apart of the final answer.
 
 Those are our two rules. 
 From there we can start removing useless pairs from our set, which will show us more pairs that can be taken out.
