@@ -1,0 +1,78 @@
+  __  __             _         _____                            
+ |  \/  |           (_)       / ____|                           
+ | \  / | __ _  __ _ _  ___  | (___   __ _ _   _  __ _ _ __ ___ 
+ | |\/| |/ _` |/ _` | |/ __|  \___ \ / _` | | | |/ _` | '__/ _ \
+ | |  | | (_| | (_| | | (__   ____) | (_| | |_| | (_| | | |  __/
+ |_|  |_|\__,_|\__, |_|\___| |_____/ \__, |\__,_|\__,_|_|  \___|
+                __/ |                   | |                     
+               |___/                    |_|                                        
+
+This program is meant to find solutions to the squared magic square question:
+More info:            http://www.multimagie.com/
+Where I was inspired: https://youtu.be/aOT_bG-vWyg
+
+- - - - - - - - - -
+| a^2 | b^2 | c^2 |
+|- - -|- - -|- - -|
+| d^2 | e^2 | f^2 |
+|- - -|- - -|- - -|
+| g^2 | h^2 | i^2 |
+- - - - - - - - - -
+
+Where each Row, coloumn, and the two diagonals add up to the same number.
+
+If you want to solve this your, program needs to be heavily optimized. 
+If you think of this like a clock where "a" is seconds, "b" is minutes, and so on. It would take
+
+60 seconds    for 1 minute
+60 minutes    for 1 hour
+24 hours      for 1 day
+7  days       for 1 week
+4  weeks      for 1 month (because I need more variables, and this is about time scale anyways)
+12 months     for 1 year
+10 years      for 1 decade
+10 decades    for 1 centuary
+10 centuries  for 1 millenium
+
+Multiply that all together
+= 10*10*10*12*4*7*24*60*60
+= 29'030'400'000 seconds
+Or another way to think of it is steps, and that was with relatively low upper limits before the next number goes up.
+Now your computer may be pretty fast but even if it did 1000 steps a second.
+
+you would still have to wait a long time
+29'030'400 seconds
+
+This is where an adjustment to strategy comes into play. 
+Nearly all those combinations that we checked dont even add up to the same number, or ever will. 
+
+This program instead finds combinations of numbers such that:
+a^2 + b^2 + c^2 = x
+for any x I specify
+
+Then it places these combinations into a list in the form:
+{a,b,c}
+
+From the original board theres a few things we need to note 
+a is used three times
+b is used two   times
+c is used three times
+e is used four  times
+
+Everything else is just rotations of this, but what we can take away is:
+anything that is used ONLY once must not be apart of the final answer.
+if a set has EACH of its three elements only USED TWICE means it must not be apart of the final answer.
+
+Those are our two rules. 
+From there we can start removing useless pairs from our set, which will show us more pairs that can be taken out.
+We are trimming down the possibilities. 
+
+This method let me check all pairs of x under 300k after that it started to slow down. But for checking x under 100k is incredibly fast.
+
+I made this code a long time ago so it has some memory leaking errors 
+This will not be fixed because there is no need for this code. From what I linked above people have said:
+From Lee Morgenstern "if there is a 3x3 magic square of distinct squares, then all entries must be above 10^14." 
+10^14 !! 
+I have only check up to 3*10^5 and my program starts to slow down significantly.
+
+
